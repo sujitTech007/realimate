@@ -29,27 +29,82 @@
   {{-- forget password form start --}}
   <div class="forget-page">
     @if (!empty($websiteInfo->logo))
-      <div class="text-center mb-4">
+      <div class="text-center mb-1">
         <img class="login-logo" src="{{ asset('assets/img/' . $websiteInfo->logo) }}" alt="logo">
       </div>
     @endif
 
-    <div class="form">
-      <form class="forget-password-form" action="{{ route('admin.mail_for_forget_password') }}" method="POST">
-        @csrf
-        <input type="email" name="email" placeholder="Enter Your Email" value="{{ old('email') }}" />
-        @if ($errors->has('email'))
-          <p class="text-danger text-left">{{ $errors->first('email') }}</p>
-        @endif
+    <div class="admin-login-page">
 
-        <button type="submit" class="mt-2">{{ __('proceed') }}</button>
-      </form>
+    <div class="admin-login-card">
 
-      <a class="back-to-login" href="{{ route('admin.login') }}">
-        &lt;&lt; {{ __('Back') }}
-      </a>
+        <div class="login-brand">
+
+           
+            <h2>Forgot Password?</h2>
+
+            <p>
+                Enter your registered email address and we'll send you
+                instructions to reset your password.
+            </p>
+
+        </div>
+
+        <form
+            class="login-form forget-password-form"
+            action="{{ route('admin.mail_for_forget_password') }}"
+            method="POST"
+        >
+
+            @csrf
+
+            <div class="input-group">
+
+                <label>Email Address</label>
+
+                <div class="input-wrapper">
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email address"
+                        value="{{ old('email') }}"
+                    >
+
+                </div>
+
+                @if ($errors->has('email'))
+                    <p class="login-error">
+                        {{ $errors->first('email') }}
+                    </p>
+                @endif
+
+            </div>
+
+            <button type="submit" class="login-btn">
+
+                <span>{{ __('proceed') }}</span>
+
+                <i class="fas fa-arrow-right"></i>
+
+            </button>
+
+        </form>
+
+        <a
+            class="forget-link back-to-login"
+            href="{{ route('admin.login') }}"
+        >
+            <i class="fas fa-arrow-left"></i>
+            {{ __('Back to Login') }}
+        </a>
+
+        <div class="login-footer">
+            <span>© {{ date('Y') }} All Rights Reserved</span>
+        </div>
+
     </div>
-  </div>
+
+</div>
   {{-- forget password form end --}}
 
 
