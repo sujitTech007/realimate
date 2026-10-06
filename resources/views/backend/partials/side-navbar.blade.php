@@ -1968,25 +1968,27 @@ active @endif
 
             @elseif (request()->routeIs('admin.basic_settings.mail_from_admin')) active
 
+            @elseif (request()->routeIs('admin.payment_gateways.online_gateways')) active
+
             @elseif (request()->routeIs('admin.basic_settings.mail_to_admin')) active
 
             @elseif (request()->routeIs('admin.basic_settings.mail_templates')) active
 
             @elseif (request()->routeIs('admin.basic_settings.edit_mail_template')) active
 
-            @elseif (request()->routeIs('admin.basic_settings.breadcrumb')) active
+            {{-- @elseif (request()->routeIs('admin.basic_settings.breadcrumb')) active --}}
 
             @elseif (request()->routeIs('admin.basic_settings.page_headings')) active
 
-            @elseif (request()->routeIs('admin.basic_settings.plugins')) active
+            {{-- @elseif (request()->routeIs('admin.basic_settings.plugins')) active --}}
 
-            @elseif (request()->routeIs('admin.basic_settings.seo')) active 
+            {{-- @elseif (request()->routeIs('admin.basic_settings.seo')) active --}}
 
-            @elseif (request()->routeIs('admin.basic_settings.maintenance_mode')) active
+            {{-- @elseif (request()->routeIs('admin.basic_settings.maintenance_mode')) active --}}
 
-            @elseif (request()->routeIs('admin.basic_settings.general_settings')) active
+            {{-- @elseif (request()->routeIs('admin.basic_settings.general_settings')) active --}}
 
-            @elseif (request()->routeIs('admin.basic_settings.cookie_alert')) active
+            {{-- @elseif (request()->routeIs('admin.basic_settings.cookie_alert')) active --}}
 
             @elseif (request()->routeIs('admin.basic_settings.social_medias')) active @endif">
 
@@ -2010,31 +2012,33 @@ active @endif
 
               @elseif (request()->routeIs('admin.basic_settings.mail_from_admin')) show
 
+              @elseif (request()->routeIs('admin.payment_gateways.online_gateways')) show
+
               @elseif (request()->routeIs('admin.basic_settings.mail_to_admin')) show
 
               @elseif (request()->routeIs('admin.basic_settings.mail_templates')) show
 
               @elseif (request()->routeIs('admin.basic_settings.edit_mail_template')) show
 
-              @elseif (request()->routeIs('admin.basic_settings.breadcrumb')) show
+              {{-- @elseif (request()->routeIs('admin.basic_settings.breadcrumb')) show --}}
 
               @elseif (request()->routeIs('admin.basic_settings.page_headings')) show
 
-              @elseif (request()->routeIs('admin.basic_settings.plugins')) show
+              {{-- @elseif (request()->routeIs('admin.basic_settings.plugins')) show --}}
 
-              @elseif (request()->routeIs('admin.basic_settings.seo')) show 
+             {{-- @elseif (request()->routeIs('admin.basic_settings.seo')) show --}}
 
-              @elseif (request()->routeIs('admin.basic_settings.maintenance_mode')) show
+             {{-- @elseif (request()->routeIs('admin.basic_settings.maintenance_mode')) show --}}
 
-              @elseif (request()->routeIs('admin.basic_settings.cookie_alert')) show
+              {{-- @elseif (request()->routeIs('admin.basic_settings.cookie_alert')) show --}}
 
-              @elseif (request()->routeIs('admin.basic_settings.general_settings')) show
+              {{-- @elseif (request()->routeIs('admin.basic_settings.general_settings')) show --}}
 
               @elseif (request()->routeIs('admin.basic_settings.social_medias')) show @endif">
 
                             <ul class="nav nav-collapse">
 
-                                <li
+                                {{-- <li
 
                                     class="{{ request()->routeIs('admin.basic_settings.general_settings') ? 'active' : '' }}">
 
@@ -2044,8 +2048,20 @@ active @endif
 
                                     </a>
 
-                                </li>
+                                </li> --}}
 
+                                 <li
+
+                                    class="{{ request()->routeIs('admin.payment_gateways.online_gateways') ? 'active' : '' }}">
+
+                                    <a href="{{ route('admin.payment_gateways.online_gateways') }}">
+
+                                        <span class="sub-item">{{ 'Stripe Payment' }}</span>
+
+                                    </a>
+
+                                </li>
+ 
 
 
                                 <li
@@ -2138,7 +2154,7 @@ active @endif
 
 
 
-                                <li
+                               {{-- <li
 
                                     class="{{ request()->routeIs('admin.basic_settings.breadcrumb') ? 'active' : '' }}">
 
@@ -2148,7 +2164,7 @@ active @endif
 
                                     </a>
 
-                                </li>
+                                </li> --}}  
 
 
 
@@ -2170,7 +2186,7 @@ active @endif
 
 
 
-                                <li class="{{ request()->routeIs('admin.basic_settings.plugins') ? 'active' : '' }}">
+                                {{-- <li class="{{ request()->routeIs('admin.basic_settings.plugins') ? 'active' : '' }}">
 
                                     <a href="{{ route('admin.basic_settings.plugins') }}">
 
@@ -2178,11 +2194,11 @@ active @endif
 
                                     </a>
 
-                                </li>
+                                </li> --}}
 
 
 
-                                <li class="{{ request()->routeIs('admin.basic_settings.seo') ? 'active' : '' }}">
+                                {{-- <li class="{{ request()->routeIs('admin.basic_settings.seo') ? 'active' : '' }}">
 
                                     <a
 
@@ -2192,11 +2208,11 @@ active @endif
 
                                     </a>
 
-                                </li>
+                                </li> --}}
 
 
 
-                                <li
+                               {{-- <li
 
                                     class="{{ request()->routeIs('admin.basic_settings.maintenance_mode') ? 'active' : '' }}">
 
@@ -2206,11 +2222,11 @@ active @endif
 
                                     </a>
 
-                                </li>
+                                </li> --}}
 
 
 
-                                <li
+                               {{-- <li
 
                                     class="{{ request()->routeIs('admin.basic_settings.cookie_alert') ? 'active' : '' }}">
 
@@ -2222,7 +2238,7 @@ active @endif
 
                                     </a>
 
-                                </li>
+                                </li> --}}
 
 
 
@@ -2246,71 +2262,7 @@ active @endif
 
                 @endif
 
-                {{-- payment gateway --}}
-
-                @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Payment Gateways', $rolePermissions)))
-
-                    <li
-
-                        class="nav-item @if (request()->routeIs('admin.payment_gateways.online_gateways')) active 
-
-            @elseif (request()->routeIs('admin.payment_gateways.offline_gateways')) active @endif">
-
-                        <a data-toggle="collapse" href="#payment_gateways">
-
-                            <i class="la flaticon-paypal"></i>
-
-                            <p>{{ 'Payment Gateways' }}</p>
-
-                            <span class="caret"></span>
-
-                        </a>
-
-
-
-                        <div id="payment_gateways"
-
-                            class="collapse 
-
-              @if (request()->routeIs('admin.payment_gateways.online_gateways')) show 
-
-              @elseif (request()->routeIs('admin.payment_gateways.offline_gateways')) show @endif">
-
-                            <ul class="nav nav-collapse">
-
-                                <li
-
-                                    class="{{ request()->routeIs('admin.payment_gateways.online_gateways') ? 'active' : '' }}">
-
-                                    <a href="{{ route('admin.payment_gateways.online_gateways') }}">
-
-                                        <span class="sub-item">{{ 'Online Gateways' }}</span>
-
-                                    </a>
-
-                                </li>
-
-
-
-                                <li
-
-                                    class="{{ request()->routeIs('admin.payment_gateways.offline_gateways') ? 'active' : '' }}">
-
-                                    <a href="{{ route('admin.payment_gateways.offline_gateways') }}">
-
-                                        <span class="sub-item">{{ 'Offline Gateways' }}</span>
-
-                                    </a>
-
-                                </li>
-
-                            </ul>
-
-                        </div>
-
-                    </li>
-
-                @endif
+                
 
 
 
@@ -2392,7 +2344,7 @@ active @endif
 
                 {{-- language --}}
 
-                @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Language Management', $rolePermissions)))
+              {{--  @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Language Management', $rolePermissions)))
 
                     <li
 
@@ -2410,7 +2362,7 @@ active @endif
 
                     </li>
 
-                @endif
+                @endif --}}
 
             </ul>
 

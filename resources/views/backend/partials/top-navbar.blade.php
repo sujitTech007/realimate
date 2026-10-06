@@ -35,7 +35,7 @@
     data-background-color="{{ $settings->admin_theme_version == 'light' ? 'white2' : 'dark' }}">
     <div class="container-fluid">
       <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
-        <form action="{{ route('admin.change_theme') }}" class="form-inline mr-3" method="GET">
+        {{-- <form action="{{ route('admin.change_theme') }}" class="form-inline mr-3" method="GET">
           <div class="form-group">
             <div class="selectgroup selectgroup-secondary selectgroup-pills">
               <label class="selectgroup-item">
@@ -44,14 +44,14 @@
                 <span class="selectgroup-button selectgroup-button-icon"><i class="fa fa-sun"></i></span>
               </label>
 
-              <label class="selectgroup-item">
+               <label class="selectgroup-item">
                 <input type="radio" name="admin_theme_version" value="dark" class="selectgroup-input"
                   {{ $settings->admin_theme_version == 'dark' ? 'checked' : '' }} onchange="this.form.submit()">
                 <span class="selectgroup-button selectgroup-button-icon"><i class="fa fa-moon"></i></span>
               </label>
             </div>
           </div>
-        </form>
+        </form> --}}
 
         <li class="nav-item dropdown hidden-caret">
           <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">

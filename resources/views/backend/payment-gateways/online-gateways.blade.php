@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="page-header">
-    <h4 class="page-title">{{ __('Online Gateways') }}</h4>
+    <h4 class="page-title">{{ __('Stripe Payment') }}</h4>
     <ul class="breadcrumbs">
       <li class="nav-home">
         <a href="{{ route('admin.dashboard') }}">
@@ -13,19 +13,14 @@
         <i class="flaticon-right-arrow"></i>
       </li>
       <li class="nav-item">
-        <a href="#">{{ __('Payment Gateways') }}</a>
+        <a href="#">{{ __('Stripe Payment') }}</a>
       </li>
-      <li class="separator">
-        <i class="flaticon-right-arrow"></i>
-      </li>
-      <li class="nav-item">
-        <a href="#">{{ __('Online Gateways') }}</a>
-      </li>
+      
     </ul>
   </div>
 
   <div class="row">
-    <div class="col-lg-4">
+  {{--  <div class="col-lg-4">
       <div class="card">
         <form action="{{ route('admin.payment_gateways.update_paypal_info') }}" method="post">
           @csrf
@@ -112,9 +107,9 @@
           </div>
         </form>
       </div>
-    </div>
+    </div> --}}
 
-    <div class="col-lg-4">
+   {{-- <div class="col-lg-4">
       <div class="card">
         <form action="{{ route('admin.payment_gateways.update_instamojo_info') }}" method="post">
           @csrf
@@ -201,10 +196,10 @@
           </div>
         </form>
       </div>
-    </div>
+    </div> --}}
 
     {{-- paytm --}}
-    <div class="col-lg-4">
+    {{-- <div class="col-lg-4">
       <div class="card">
         <form action="{{ route('admin.payment_gateways.update_paytm_info') }}" method="post">
           @csrf
@@ -309,7 +304,7 @@
           </div>
         </form>
       </div>
-    </div>
+    </div> --}}
 
 
 
@@ -383,7 +378,7 @@
       </div>
     </div>
     {{-- flutterwave --}}
-    <div class="col-lg-4">
+    {{-- <div class="col-lg-4">
       <div class="card">
         <form action="{{ route('admin.payment_gateways.update_flutterwave_info') }}" method="post">
           @csrf
@@ -451,10 +446,10 @@
           </div>
         </form>
       </div>
-    </div>
+    </div> --}}
 
     {{-- Razorpay --}}
-    <div class="col-lg-4">
+   {{-- <div class="col-lg-4">
       <div class="card">
         <form action="{{ route('admin.payment_gateways.update_razorpay_info') }}" method="post">
           @csrf
@@ -521,9 +516,9 @@
           </div>
         </form>
       </div>
-    </div>
+    </div> --}}
     {{-- mollie --}}
-    <div class="col-lg-4">
+    {{-- <div class="col-lg-4">
       <div class="card">
         <form action="{{ route('admin.payment_gateways.update_mollie_info') }}" method="post">
           @csrf
@@ -581,10 +576,10 @@
           </div>
         </form>
       </div>
-    </div>
+    </div> --}}
 
     {{-- paystack --}}
-    <div class="col-lg-4">
+    {{-- <div class="col-lg-4">
       <div class="card">
         <form action="{{ route('admin.payment_gateways.update_paystack_info') }}" method="post">
           @csrf
@@ -642,10 +637,10 @@
           </div>
         </form>
       </div>
-    </div>
+    </div> --}}
 
     {{-- mercadopago --}}
-    <div class="col-lg-4">
+   {{--  <div class="col-lg-4">
       <div class="card">
         <form action="{{ route('admin.payment_gateways.update_mercadopago_info') }}" method="post">
           @csrf
@@ -719,12 +714,12 @@
           </div>
         </form>
       </div>
-    </div>
+    </div> --}}
 
 
 
     {{-- authorize.net --}}
-    <div class="col-lg-4">
+    {{-- <div class="col-lg-4">
       <div class="card">
         <form class="" action="{{ route('admin.payment_gateways.update_anet_info') }}" method="post">
           @csrf
@@ -815,7 +810,7 @@
           </div>
         </form>
       </div>
-    </div>
+    </div> --}}
 
   </div>
 @endsection
