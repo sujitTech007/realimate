@@ -124,7 +124,7 @@
 
             <ul class="nav nav-primary">
 
-                {{-- search --}}
+            
 
                 <div class="row mb-3">
 
@@ -148,7 +148,7 @@
 
 
 
-                {{-- dashboard --}}
+               
 
                 <li class="nav-item @if (request()->routeIs('admin.dashboard')) active @endif">
 
@@ -164,7 +164,7 @@
 
 
 
-                {{-- Property specifications --}}
+              
 
 
 
@@ -318,14 +318,6 @@
 
                 @endif
 
-
-
-                {{-- end property specifications  --}}
-
-
-
-                {{-- Property management --}}
-
                 @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Property Management', $rolePermissions)))
 
                     <li
@@ -426,11 +418,7 @@
 
                 @endif
 
-                {{-- end property management  --}}
-
-
-
-                {{-- start featured properties  --}}
+               
 
                 @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Featured Properties', $rolePermissions)))
 
@@ -534,11 +522,7 @@
 
                 @endif
 
-                {{-- end featured properties  --}}
-
-
-
-                {{-- start property messages  --}}
+                
 
                 @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Property Messages', $rolePermissions)))
 
@@ -556,11 +540,7 @@
 
                 @endif
 
-                {{-- end property messages  --}}
-
-
-
-                {{-- Project management  start --}}
+              
 
                 @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Project Management', $rolePermissions)))
 
@@ -668,13 +648,7 @@
 
                 @endif
 
-                {{-- Project Management end  --}}
-
-
-
-
-
-                {{-- Start Agnet  --}}
+               
 
                 @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Agent', $rolePermissions)))
 
@@ -692,11 +666,7 @@
 
                 @endif
 
-                {{-- end agent  --}}
-
-
-
-                {{-- Start Job Payments  --}}
+              
 
                 @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Agent', $rolePermissions)))
 
@@ -714,12 +684,7 @@
 
                 @endif
 
-                {{-- end Job Payments  --}}
-
-
-
-                {{-- start package management --}}
-
+              
                 @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Package Management', $rolePermissions)))
 
                     <li
@@ -785,36 +750,7 @@
                     </li>
 
                 @endif
-
-                {{-- end package management  --}}
-
-
-
-                {{-- menu builder --}}
-
-                @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Menu Builder', $rolePermissions)))
-
-                    <li class="nav-item @if (request()->routeIs('admin.menu_builder')) active @endif">
-
-                        <a href="{{ route('admin.menu_builder', ['language' => $defaultLang->code]) }}">
-
-                            <i class="fal fa-bars"></i>
-
-                            <p>{{ 'Menu Builder' }}</p>
-
-                        </a>
-
-                    </li>
-
-                @endif
-
-
-
-
-
-
-
-                {{-- payment log --}}
+              
 
                 @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Payment Log', $rolePermissions)))
 
@@ -834,7 +770,6 @@
 
 
 
-                {{-- start user management --}}
 
                 @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('User Management', $rolePermissions)))
 
@@ -942,12 +877,7 @@ active @endif
 
                 @endif
 
-                {{-- end user management  --}}
-
-
-
-                {{-- start vendors management --}}
-
+               
                 @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Vendors Management', $rolePermissions)))
 
                     <li
@@ -1042,11 +972,7 @@ active @endif
 
 
 
-                {{-- end vendors management  --}}
-
-
-
-                {{-- Support Tickets --}}
+            
 
                 @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Support Tickets', $rolePermissions)))
 
@@ -1148,15 +1074,6 @@ active @endif
 
                 @endif
 
-                {{-- end support tickets  --}}
-
-
-
-
-
-
-
-                {{-- home page --}}
 
                 @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Home Page', $rolePermissions)))
 
@@ -1636,95 +1553,7 @@ active @endif
 
                 @endif
 
-
-
-
-
-
-
-                {{-- footer --}}
-
-                @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Footer', $rolePermissions)))
-
-                    <li
-
-                        class="nav-item @if (request()->routeIs('admin.footer.logo_and_image')) active 
-
-            @elseif (request()->routeIs('admin.footer.content')) active 
-
-            @elseif (request()->routeIs('admin.footer.quick_links')) active @endif">
-
-                        <a data-toggle="collapse" href="#footer">
-
-                            <i class="fal fa-shoe-prints"></i>
-
-                            <p>{{ 'Footer' }}</p>
-
-                            <span class="caret"></span>
-
-                        </a>
-
-
-
-                        <div id="footer"
-
-                            class="collapse @if (request()->routeIs('admin.footer.logo_and_image')) show 
-
-              @elseif (request()->routeIs('admin.footer.content')) show 
-
-              @elseif (request()->routeIs('admin.footer.quick_links')) show @endif">
-
-                            <ul class="nav nav-collapse">
-
-                                <li class="{{ request()->routeIs('admin.footer.logo_and_image') ? 'active' : '' }}">
-
-                                    <a href="{{ route('admin.footer.logo_and_image') }}">
-
-                                        <span class="sub-item">{{ 'Logo & Image' }}</span>
-
-                                    </a>
-
-                                </li>
-
-
-
-                                <li class="{{ request()->routeIs('admin.footer.content') ? 'active' : '' }}">
-
-                                    <a
-
-                                        href="{{ route('admin.footer.content', ['language' => $defaultLang->code]) }}">
-
-                                        <span class="sub-item">{{ 'Content' }}</span>
-
-                                    </a>
-
-                                </li>
-
-
-
-                                <li class="{{ request()->routeIs('admin.footer.quick_links') ? 'active' : '' }}">
-
-                                    <a
-
-                                        href="{{ route('admin.footer.quick_links', ['language' => $defaultLang->code]) }}">
-
-                                        <span class="sub-item">{{ 'Quick Links' }}</span>
-
-                                    </a>
-
-                                </li>
-
-                            </ul>
-
-                        </div>
-
-                    </li>
-
-                @endif
-
-
-
-                {{-- custom page --}}
+            
 
                 @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Custom Pages', $rolePermissions)))
 
@@ -1750,7 +1579,7 @@ active @endif
 
 
 
-                {{-- blog --}}
+               
 
                 @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Blog Management', $rolePermissions)))
 
@@ -1838,8 +1667,7 @@ active @endif
 
 
 
-                {{-- faq --}}
-
+              
                 @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('FAQ Management', $rolePermissions)))
 
                     <li class="nav-item {{ request()->routeIs('admin.faq_management') ? 'active' : '' }}">
@@ -1856,97 +1684,11 @@ active @endif
 
                 @endif
 
-
-
-                {{-- advertise --}}
-
-                @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Advertise', $rolePermissions)))
-
-                    <li
-
-                        class="nav-item @if (request()->routeIs('admin.advertise.settings')) active 
-
-            @elseif (request()->routeIs('admin.advertise.all_advertisement')) active @endif">
-
-                        <a data-toggle="collapse" href="#customid">
-
-                            <i class="fab fa-buysellads"></i>
-
-                            <p>{{ 'Advertisements' }}</p>
-
-                            <span class="caret"></span>
-
-                        </a>
+                
 
 
 
-                        <div id="customid"
-
-                            class="collapse @if (request()->routeIs('admin.advertise.settings')) show 
-
-              @elseif (request()->routeIs('admin.advertise.all_advertisement')) show @endif">
-
-                            <ul class="nav nav-collapse">
-
-                                <li class="{{ request()->routeIs('admin.advertise.settings') ? 'active' : '' }}">
-
-                                    <a href="{{ route('admin.advertise.settings') }}">
-
-                                        <span class="sub-item">{{ 'Settings' }}</span>
-
-                                    </a>
-
-                                </li>
-
-
-
-                                <li
-
-                                    class="{{ request()->routeIs('admin.advertise.all_advertisement') ? 'active' : '' }}">
-
-                                    <a href="{{ route('admin.advertise.all_advertisement') }}">
-
-                                        <span class="sub-item">{{ 'All Advertisements' }}</span>
-
-                                    </a>
-
-                                </li>
-
-                            </ul>
-
-                        </div>
-
-                    </li>
-
-                @endif
-
-
-
-                {{-- announcement popup --}}
-
-                @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Announcement Popups', $rolePermissions)))
-
-                    <li
-
-                        class="nav-item @if (request()->routeIs('admin.announcement_popups')) active 
-
-            @elseif (request()->routeIs('admin.announcement_popups.select_popup_type')) active 
-
-            @elseif (request()->routeIs('admin.announcement_popups.create_popup')) active 
-
-            @elseif (request()->routeIs('admin.announcement_popups.edit_popup')) active @endif">
-
-                        <a href="{{ route('admin.announcement_popups', ['language' => $defaultLang->code]) }}">
-
-                            <i class="fal fa-bullhorn"></i>
-
-                            <p>{{ 'Announcement Popups' }}</p>
-
-                        </a>
-
-                    </li>
-
-                @endif
+                
 
 
 
@@ -1955,8 +1697,7 @@ active @endif
 
 
 
-
-                {{-- basic settings --}}
+               
 
                 @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Basic Settings', $rolePermissions)))
 
@@ -1976,20 +1717,11 @@ active @endif
 
             @elseif (request()->routeIs('admin.basic_settings.edit_mail_template')) active
 
-            {{-- @elseif (request()->routeIs('admin.basic_settings.breadcrumb')) active --}}
+          
 
             @elseif (request()->routeIs('admin.basic_settings.page_headings')) active
 
-            {{-- @elseif (request()->routeIs('admin.basic_settings.plugins')) active --}}
-
-            {{-- @elseif (request()->routeIs('admin.basic_settings.seo')) active --}}
-
-            {{-- @elseif (request()->routeIs('admin.basic_settings.maintenance_mode')) active --}}
-
-            {{-- @elseif (request()->routeIs('admin.basic_settings.general_settings')) active --}}
-
-            {{-- @elseif (request()->routeIs('admin.basic_settings.cookie_alert')) active --}}
-
+            
             @elseif (request()->routeIs('admin.basic_settings.social_medias')) active @endif">
 
                         <a data-toggle="collapse" href="#basic_settings">
@@ -2020,35 +1752,16 @@ active @endif
 
               @elseif (request()->routeIs('admin.basic_settings.edit_mail_template')) show
 
-              {{-- @elseif (request()->routeIs('admin.basic_settings.breadcrumb')) show --}}
+            
 
               @elseif (request()->routeIs('admin.basic_settings.page_headings')) show
 
-              {{-- @elseif (request()->routeIs('admin.basic_settings.plugins')) show --}}
-
-             {{-- @elseif (request()->routeIs('admin.basic_settings.seo')) show --}}
-
-             {{-- @elseif (request()->routeIs('admin.basic_settings.maintenance_mode')) show --}}
-
-              {{-- @elseif (request()->routeIs('admin.basic_settings.cookie_alert')) show --}}
-
-              {{-- @elseif (request()->routeIs('admin.basic_settings.general_settings')) show --}}
-
+        
               @elseif (request()->routeIs('admin.basic_settings.social_medias')) show @endif">
 
                             <ul class="nav nav-collapse">
 
-                                {{-- <li
-
-                                    class="{{ request()->routeIs('admin.basic_settings.general_settings') ? 'active' : '' }}">
-
-                                    <a href="{{ route('admin.basic_settings.general_settings') }}">
-
-                                        <span class="sub-item">{{ 'General Settings' }}</span>
-
-                                    </a>
-
-                                </li> --}}
+                             
 
                                  <li
 
@@ -2154,18 +1867,7 @@ active @endif
 
 
 
-                               {{-- <li
-
-                                    class="{{ request()->routeIs('admin.basic_settings.breadcrumb') ? 'active' : '' }}">
-
-                                    <a href="{{ route('admin.basic_settings.breadcrumb') }}">
-
-                                        <span class="sub-item">{{ 'Breadcrumb' }}</span>
-
-                                    </a>
-
-                                </li> --}}  
-
+                              
 
 
 
@@ -2183,64 +1885,6 @@ active @endif
                                     </a>
 
                                 </li>
-
-
-
-                                {{-- <li class="{{ request()->routeIs('admin.basic_settings.plugins') ? 'active' : '' }}">
-
-                                    <a href="{{ route('admin.basic_settings.plugins') }}">
-
-                                        <span class="sub-item">{{ 'Plugins' }}</span>
-
-                                    </a>
-
-                                </li> --}}
-
-
-
-                                {{-- <li class="{{ request()->routeIs('admin.basic_settings.seo') ? 'active' : '' }}">
-
-                                    <a
-
-                                        href="{{ route('admin.basic_settings.seo', ['language' => $defaultLang->code]) }}">
-
-                                        <span class="sub-item">{{ 'SEO Informations' }}</span>
-
-                                    </a>
-
-                                </li> --}}
-
-
-
-                               {{-- <li
-
-                                    class="{{ request()->routeIs('admin.basic_settings.maintenance_mode') ? 'active' : '' }}">
-
-                                    <a href="{{ route('admin.basic_settings.maintenance_mode') }}">
-
-                                        <span class="sub-item">{{ 'Maintenance Mode' }}</span>
-
-                                    </a>
-
-                                </li> --}}
-
-
-
-                               {{-- <li
-
-                                    class="{{ request()->routeIs('admin.basic_settings.cookie_alert') ? 'active' : '' }}">
-
-                                    <a
-
-                                        href="{{ route('admin.basic_settings.cookie_alert', ['language' => $defaultLang->code]) }}">
-
-                                        <span class="sub-item">{{ 'Cookie Alert' }}</span>
-
-                                    </a>
-
-                                </li> --}}
-
-
 
                                 <li
 
@@ -2268,7 +1912,7 @@ active @endif
 
 
 
-                {{-- admin --}}
+               
 
                 @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Admin Management', $rolePermissions)))
 
@@ -2342,27 +1986,9 @@ active @endif
 
 
 
-                {{-- language --}}
+              
 
-              {{--  @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Language Management', $rolePermissions)))
-
-                    <li
-
-                        class="nav-item @if (request()->routeIs('admin.language_management')) active 
-
-            @elseif (request()->routeIs('admin.language_management.edit_keyword')) active @endif">
-
-                        <a href="{{ route('admin.language_management') }}">
-
-                            <i class="fal fa-language"></i>
-
-                            <p>{{ 'Language Management' }}</p>
-
-                        </a>
-
-                    </li>
-
-                @endif --}}
+            
 
             </ul>
 

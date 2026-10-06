@@ -2177,7 +2177,7 @@
             "time": "2025-02-03T10:55:03+00:00"
         },
         {
-            "name": "kreativdev/installer",
+            "name": "Realimate/installer",
             "version": "1.1.0",
             "source": {
                 "type": "git",
@@ -2197,13 +2197,13 @@
             "extra": {
                 "laravel": {
                     "providers": [
-                        "Kreativdev\\Installer\\KdInstallerServiceProvider"
+                        "Realimate\\Installer\\KdInstallerServiceProvider"
                     ]
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Kreativdev\\Installer\\": "src/"
+                    "Realimate\\Installer\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2212,11 +2212,11 @@
             ],
             "authors": [
                 {
-                    "name": "KreativDev",
-                    "email": "kreativdev.envato@gmail.com"
+                    "name": "Realimate",
+                    "email": "Realimate@gmail.com"
                 }
             ],
-            "description": "This package will add installer in Laravel Items of KreativDev (Non-SAAS)",
+            "description": "This package will add installer in Laravel Items of Realimate (Non-SAAS)",
             "support": {
                 "issues": "https://gitlab.com/packages9950522/installer/-/issues",
                 "source": "https://gitlab.com/packages9950522/installer/-/tree/1.1.0"
