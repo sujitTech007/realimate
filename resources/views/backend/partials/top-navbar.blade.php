@@ -1,4 +1,10 @@
-<div class="main-header">
+
+
+<style>
+    .dropdown_menu_admin .dropdown-user-scroll {
+        position: static !important;
+    }
+    </style><div class="main-header">
   <!-- Logo Header Start -->
   <div class="logo-header" data-background-color="{{ $settings->admin_theme_version == 'light' ? 'white' : 'dark2' }}">
     @if (!empty($websiteInfo->logo))
@@ -59,7 +65,7 @@
             </div>
           </a>
 
-          <ul class="dropdown-menu dropdown-user animated fadeIn">
+          <ul class="dropdown-menu dropdown-user  dropdown_menu_admin  animated fadeIn">
             <div class="dropdown-user-scroll scrollbar-outer">
               <li>
                 <div class="user-box">
