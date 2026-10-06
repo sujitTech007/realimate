@@ -2502,9 +2502,9 @@ Lazyload CSS
 
 #preLoader .loader {
 
-    width: 54px;
+    width: 150px;
 
-    height: 54px;
+    height: 150px;
 
     position: relative;
 
@@ -2536,6 +2536,26 @@ Lazyload CSS
 
     stroke-linecap: round;
 
+}
+
+#preLoader .loader svg circle {
+    fill: none !important;
+    background: transparent !important;
+
+    stroke: var(--color-primary);
+    stroke-width: 1px;
+    stroke-linecap: round;
+
+    stroke-dasharray: 160 50;
+    stroke-dashoffset: 0;
+
+    animation: circleLoader 2s linear infinite;
+}
+
+@keyframes circleLoader {
+    to {
+        stroke-dashoffset: -210;
+    }
 }
 
 
@@ -2576,6 +2596,32 @@ Lazyload CSS
 
 }
 
+#preLoader .loader .icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation: iconBlink 1.5s ease-in-out infinite;
+}
+
+#preLoader .loader .icon img {
+    width: 60px;
+    height: auto;
+}
+
+@keyframes iconBlink {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.3;
+        transform: scale(0.92);
+    }
+}
 
 
 @keyframes pathRect {
