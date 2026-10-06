@@ -2,9 +2,13 @@
     <!-- Preloader start -->
     <div id="preLoader">
         <div class="loader">
-            <svg viewBox="0 0 80 80">
+            <!-- <svg viewBox="0 0 80 80">
                 <rect x="8" y="8" width="64" height="64"></rect>
-            </svg>
+            </svg> -->
+
+            <svg viewBox="0 0 80 80">
+    <circle cx="40" cy="40" r="32"></circle>
+</svg>
             <div class="icon"><img src="{{ asset('assets/img/' . $basicInfo->preloader) }}"></div>
         </div>
     </div>
