@@ -66,7 +66,7 @@
                         <i class="fas fa-eye"></i>
                     </a>
                 </li>
-                <form action="{{ route('agent.change_theme') }}" class="form-inline mr-3" method="POST">
+                {{-- <form action="{{ route('agent.change_theme') }}" class="form-inline mr-3" method="POST">
 
                     @csrf
                     <div class="form-group">
@@ -80,7 +80,7 @@
                                         class="fa fa-sun"></i></span>
                             </label>
 
-                            <label class="selectgroup-item">
+                             <label class="selectgroup-item">
                                 <input type="radio" name="agent_theme_version" value="dark"
                                     class="selectgroup-input"
                                     {{ Session::get('agent_theme_version') == 'dark' ? 'checked' : '' }}
@@ -90,7 +90,7 @@
                             </label>
                         </div>
                     </div>
-                </form>
+                </form>  --}}
 
 
                 <li class="nav-item dropdown hidden-caret">
